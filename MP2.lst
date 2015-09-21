@@ -1,67 +1,60 @@
      Assembly listing for: MP2.mas
-                Assembled: Mon Sep 21 13:38:34 CST 2015
+                Assembled: Mon Sep 21 14:31:09 CST 2015
 
          |           ORG 000             
 000 5000 |           INPUT               
-001 202E |           STORE A             
-002 102E |           LOAD A              
-003 402F |           SUBT X              
+001 2027 |           STORE A             
+002 1027 |           LOAD A              
+003 4028 |           SUBT X              
 004 8800 |           SKIPCOND 800        
 005 9007 |           JUMP ENDIF          
 006 9008 |           JUMP LOOPA          
          |                              
 007 7000 |  ENDIF    HALT                
          |                              
-008 102F |  LOOPA    LOAD X              
+008 1028 |  LOOPA    LOAD X              
 009 8400 |           SKIPCOND 400        
-00A 9018 |           JUMP LOOPB          
+00A 9014 |           JUMP LOOPB          
 00B 900C |           JUMP OUTPUTA        
          |                              
-00C 102E |  OUTPUTA  LOAD A              
+00C 1027 |  OUTPUTA  LOAD A              
 00D 6000 |           OUTPUT              
-00E 102F |           LOAD X              
-00F 3030 |           ADD ONE             
-010 202F |           STORE X             
-011 6000 |           OUTPUT              
-012 9013 |           JUMP OUTPUTAA       
+00E 900F |           JUMP OUTPUTAA       
          |                              
-013 102F |  OUTPUTAA LOAD X              
-014 3030 |           ADD ONE             
-015 202F |           STORE X             
-016 6000 |           OUTPUT              
-017 9013 |           JUMP OUTPUTAA       
+00F 1028 |  OUTPUTAA LOAD X              
+010 3029 |           ADD ONE             
+011 2028 |           STORE X             
+012 6000 |           OUTPUT              
+013 900F |           JUMP OUTPUTAA       
          |                              	
-018 1032 |  LOOPB    LOAD FOUR           
-019 402F |           SUBT X              
-01A 8800 |           SKIPCOND 800        
-01B 8000 |           SKIPCOND 000        
-01C 901E |           JUMP OUTPUTB        
-01D 9023 |           JUMP OUTPUTC        
+014 102B |  LOOPB    LOAD FOUR           
+015 4028 |           SUBT X              
+016 8800 |           SKIPCOND 800        
+017 8000 |           SKIPCOND 000        
+018 901A |           JUMP OUTPUTB        
+019 901F |           JUMP OUTPUTC        
          |                              
-01E 102F |  OUTPUTB  LOAD X              
-01F 3031 |           ADD TWO             
-020 202F |           STORE X             
-021 6000 |           OUTPUT              
-022 901E |           JUMP OUTPUTB        
+01A 1028 |  OUTPUTB  LOAD X              
+01B 302A |           ADD TWO             
+01C 2028 |           STORE X             
+01D 6000 |           OUTPUT              
+01E 901A |           JUMP OUTPUTB        
          |                              
-023 102F |  OUTPUTC  LOAD X              
-024 6000 |           OUTPUT              
-025 3030 |           ADD ONE             
-026 202F |           STORE X             
-027 6000 |           OUTPUT              
-028 9029 |           JUMP OUTPUTCC       
+01F 1028 |  OUTPUTC  LOAD X              
+020 6000 |           OUTPUT              
+021 9022 |           JUMP OUTPUTCC       
          |                              
-029 102F |  OUTPUTCC LOAD X              
-02A 3030 |           ADD ONE             
-02B 202F |           STORE X             
-02C 6000 |           OUTPUT              
-02D 9029 |           JUMP OUTPUTCC       
+022 1028 |  OUTPUTCC LOAD X              
+023 3029 |           ADD ONE             
+024 2028 |           STORE X             
+025 6000 |           OUTPUT              
+026 9022 |           JUMP OUTPUTCC       
          |                              
-02E 0000 |  A        DEC 00              
-02F 0000 |  X        DEC 00              
-030 0001 |  ONE      DEC 01              
-031 0002 |  TWO      DEC 02              
-032 0004 |  FOUR     DEC 04              
+027 0000 |  A        DEC 00              
+028 0000 |  X        DEC 00              
+029 0001 |  ONE      DEC 01              
+02A 0002 |  TWO      DEC 02              
+02B 0004 |  FOUR     DEC 04              
 
 Assembly successful.
 
@@ -69,21 +62,20 @@ Assembly successful.
          ----------------------------------------------------
           Symbol   | Defined | References 
          ----------+---------+-------------------------------
-          A        |   02E   | 001, 002, 00C
+          A        |   027   | 001, 002, 00C
           ENDIF    |   007   | 005
-          FOUR     |   032   | 018
+          FOUR     |   02B   | 014
           LOOPA    |   008   | 006
-          LOOPB    |   018   | 00A
-          ONE      |   030   | 00F, 014, 025, 02A
+          LOOPB    |   014   | 00A
+          ONE      |   029   | 010, 023
           OUTPUTA  |   00C   | 00B
-          OUTPUTAA |   013   | 012, 017
-          OUTPUTB  |   01E   | 01C, 022
-          OUTPUTC  |   023   | 01D
-          OUTPUTCC |   029   | 028, 02D
-          TWO      |   031   | 01F
-          X        |   02F   | 003, 008, 00E, 010, 013, 015, 
-                   |         | 019, 01E, 020, 023, 026, 029, 
-                   |         | 02B
+          OUTPUTAA |   00F   | 00E, 013
+          OUTPUTB  |   01A   | 018, 01E
+          OUTPUTC  |   01F   | 019
+          OUTPUTCC |   022   | 021, 026
+          TWO      |   02A   | 01B
+          X        |   028   | 003, 008, 00F, 011, 015, 01A, 
+                   |         | 01C, 01F, 022, 024
          ----------------------------------------------------
 
 

@@ -1,17 +1,17 @@
  -------------------
  Symbol   | Location
  ---------+---------
- A        |   02E
+ A        |   027
  ENDIF    |   007
- FOUR     |   032
+ FOUR     |   02B
  LOOPA    |   008
- LOOPB    |   018
- ONE      |   030
+ LOOPB    |   014
+ ONE      |   029
  OUTPUTA  |   00C
- OUTPUTAA |   013
- OUTPUTB  |   01E
- OUTPUTC  |   023
- OUTPUTCC |   029
- TWO      |   031
- X        |   02F
+ OUTPUTAA |   00F
+ OUTPUTB  |   01A
+ OUTPUTC  |   01F
+ OUTPUTCC |   022
+ TWO      |   02A
+ X        |   028
 
