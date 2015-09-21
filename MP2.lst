@@ -1,81 +1,104 @@
      Assembly listing for: MP2.mas
-                Assembled: Mon Sep 21 14:31:09 CST 2015
+                Assembled: Mon Sep 21 16:38:22 CST 2015
 
-         |           ORG 000             
-000 5000 |           INPUT               
-001 2027 |           STORE A             
-002 1027 |           LOAD A              
-003 4028 |           SUBT X              
-004 8800 |           SKIPCOND 800        
-005 9007 |           JUMP ENDIF          
-006 9008 |           JUMP LOOPA          
-         |                              
-007 7000 |  ENDIF    HALT                
-         |                              
-008 1028 |  LOOPA    LOAD X              
-009 8400 |           SKIPCOND 400        
-00A 9014 |           JUMP LOOPB          
-00B 900C |           JUMP OUTPUTA        
-         |                              
-00C 1027 |  OUTPUTA  LOAD A              
-00D 6000 |           OUTPUT              
-00E 900F |           JUMP OUTPUTAA       
-         |                              
-00F 1028 |  OUTPUTAA LOAD X              
-010 3029 |           ADD ONE             
-011 2028 |           STORE X             
-012 6000 |           OUTPUT              
-013 900F |           JUMP OUTPUTAA       
-         |                              	
-014 102B |  LOOPB    LOAD FOUR           
-015 4028 |           SUBT X              
-016 8800 |           SKIPCOND 800        
-017 8000 |           SKIPCOND 000        
-018 901A |           JUMP OUTPUTB        
-019 901F |           JUMP OUTPUTC        
-         |                              
-01A 1028 |  OUTPUTB  LOAD X              
-01B 302A |           ADD TWO             
-01C 2028 |           STORE X             
-01D 6000 |           OUTPUT              
-01E 901A |           JUMP OUTPUTB        
-         |                              
-01F 1028 |  OUTPUTC  LOAD X              
-020 6000 |           OUTPUT              
-021 9022 |           JUMP OUTPUTCC       
-         |                              
-022 1028 |  OUTPUTCC LOAD X              
-023 3029 |           ADD ONE             
-024 2028 |           STORE X             
-025 6000 |           OUTPUT              
-026 9022 |           JUMP OUTPUTCC       
-         |                              
-027 0000 |  A        DEC 00              
-028 0000 |  X        DEC 00              
-029 0001 |  ONE      DEC 01              
-02A 0002 |  TWO      DEC 02              
-02B 0004 |  FOUR     DEC 04              
+         |              ORG 000                
+000 5000 |              INPUT                  
+001 2034 |              STORE A                
+         |                                    
+002 1035 |  WHILE       LOAD X                 
+003 4034 |              SUBT A                 
+004 8000 |              SKIPCOND 000           
+005 9007 |              JUMP END               
+006 9008 |              JUMP IF                
+         |                                    
+007 7000 |  END         HALT                   
+         |                                    
+008 1035 |  IF          LOAD X                 
+009 8400 |              SKIPCOND 400           
+00A 9018 |              JUMP ELSEIF            
+00B 900C |              JUMP IFLOOP            
+         |                                    
+00C 1034 |  IFLOOP      LOAD A                 
+00D 6000 |              OUTPUT                 
+00E 1035 |              LOAD X                 
+00F 3036 |              ADD ONE                
+010 2035 |              STORE X                
+011 6000 |              OUTPUT                 
+012 9013 |              JUMP CHECKIF           
+         |                                    
+013 1035 |  CHECKIF     LOAD X                 
+014 4034 |              SUBT A                 
+015 8000 |              SKIPCOND 000           
+016 9007 |              JUMP END               
+017 9018 |              JUMP ELSEIF            
+         |                                    
+018 1038 |  ELSEIF      LOAD FOUR              
+019 4035 |              SUBT X                 
+01A 8800 |              SKIPCOND 800           
+01B 9027 |              JUMP ELSE              
+01C 901D |              JUMP ELSEIFLOOP        
+         |                                    
+01D 1035 |  ELSEIFLOOP  LOAD X                 
+01E 3037 |              ADD TWO                
+01F 2035 |              STORE X                
+020 6000 |              OUTPUT                 
+021 9022 |              JUMP CHECKELSEIF       
+         |                                    
+022 1035 |  CHECKELSEIF LOAD X                 
+023 4034 |              SUBT A                 
+024 8000 |              SKIPCOND 000           
+025 9007 |              JUMP END               
+026 9018 |              JUMP ELSEIF            
+         |                                    
+027 1035 |  ELSE        LOAD X                 
+028 6000 |              OUTPUT                 
+029 902A |              JUMP ELSELOOP          
+         |                                    
+02A 1035 |  ELSELOOP    LOAD X                 
+02B 3036 |              ADD ONE                
+02C 2035 |              STORE X                
+02D 6000 |              OUTPUT                 
+02E 902F |              JUMP CHECKELSE         
+         |                                    
+02F 1035 |  CHECKELSE   LOAD X                 
+030 4034 |              SUBT A                 
+031 8000 |              SKIPCOND 000           
+032 9007 |              JUMP END               
+033 902A |              JUMP ELSELOOP          
+         |                                    	
+         |                                    
+034 0000 |  A           DEC 00                 
+035 0000 |  X           DEC 00                 
+036 0001 |  ONE         DEC 01                 
+037 0002 |  TWO         DEC 02                 
+038 0004 |  FOUR        DEC 04                 
+         |                                    
+         |                                    	
 
 Assembly successful.
 
          SYMBOL TABLE
-         ----------------------------------------------------
-          Symbol   | Defined | References 
-         ----------+---------+-------------------------------
-          A        |   027   | 001, 002, 00C
-          ENDIF    |   007   | 005
-          FOUR     |   02B   | 014
-          LOOPA    |   008   | 006
-          LOOPB    |   014   | 00A
-          ONE      |   029   | 010, 023
-          OUTPUTA  |   00C   | 00B
-          OUTPUTAA |   00F   | 00E, 013
-          OUTPUTB  |   01A   | 018, 01E
-          OUTPUTC  |   01F   | 019
-          OUTPUTCC |   022   | 021, 026
-          TWO      |   02A   | 01B
-          X        |   028   | 003, 008, 00F, 011, 015, 01A, 
-                   |         | 01C, 01F, 022, 024
-         ----------------------------------------------------
+         -------------------------------------------------------
+          Symbol      | Defined | References 
+         -------------+---------+-------------------------------
+          A           |   034   | 001, 003, 00C, 014, 023, 030
+          CHECKELSE   |   02F   | 02E
+          CHECKELSEIF |   022   | 021
+          CHECKIF     |   013   | 012
+          ELSE        |   027   | 01B
+          ELSEIF      |   018   | 00A, 017, 026
+          ELSEIFLOOP  |   01D   | 01C
+          ELSELOOP    |   02A   | 029, 033
+          END         |   007   | 005, 016, 025, 032
+          FOUR        |   038   | 018
+          IF          |   008   | 006
+          IFLOOP      |   00C   | 00B
+          ONE         |   036   | 00F, 02B
+          TWO         |   037   | 01E
+          WHILE       |   002   | 
+          X           |   035   | 002, 008, 00E, 010, 013, 019, 
+                      |         | 01D, 01F, 022, 027, 02A, 02C, 
+                      |         | 02F
+         -------------------------------------------------------
 
 

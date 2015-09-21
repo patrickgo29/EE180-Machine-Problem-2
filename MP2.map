@@ -1,17 +1,20 @@
- -------------------
- Symbol   | Location
- ---------+---------
- A        |   027
- ENDIF    |   007
- FOUR     |   02B
- LOOPA    |   008
- LOOPB    |   014
- ONE      |   029
- OUTPUTA  |   00C
- OUTPUTAA |   00F
- OUTPUTB  |   01A
- OUTPUTC  |   01F
- OUTPUTCC |   022
- TWO      |   02A
- X        |   028
+ ----------------------
+ Symbol      | Location
+ ------------+---------
+ A           |   034
+ CHECKELSE   |   02F
+ CHECKELSEIF |   022
+ CHECKIF     |   013
+ ELSE        |   027
+ ELSEIF      |   018
+ ELSEIFLOOP  |   01D
+ ELSELOOP    |   02A
+ END         |   007
+ FOUR        |   038
+ IF          |   008
+ IFLOOP      |   00C
+ ONE         |   036
+ TWO         |   037
+ WHILE       |   002
+ X           |   035
 
